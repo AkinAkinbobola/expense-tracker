@@ -3,5 +3,7 @@ import Home from './views/Home.vue'
 </script>
 
 <template>
-  <Home/>
+  <div class="bg-gray-100 h-screen">
+    <Home/>
+  </div>
 </template>

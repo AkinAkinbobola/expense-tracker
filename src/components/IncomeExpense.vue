@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div class="flex">
+<div class="flex bg-white">
   <div>
     <h3>Income</h3>
     <p>$1400</p>

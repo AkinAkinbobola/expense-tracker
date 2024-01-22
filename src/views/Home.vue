@@ -7,7 +7,9 @@ import AddTransaction from "../components/AddTransaction.vue";
 
 import {ref, onMounted} from "vue";
 
-const balance = ref(600)
+const balance = ref(600);
+const item = ref(null);
+const price = ref(null);
 </script>
 
 <template>
@@ -17,7 +19,7 @@ const balance = ref(600)
       <Balance :balance="balance"/>
       <IncomeExpense/>
       <TransactionList/>
-      <AddTransaction/>
+      <AddTransaction :item="item" :price="price"/>
     </div>
 
   </div>

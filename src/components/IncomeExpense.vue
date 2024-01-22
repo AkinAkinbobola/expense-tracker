@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div class="flex bg-white py-3 px-6 justify-between border border-b shadow-md">
+<div class="flex bg-white py-3 px-6 justify-between border border-b shadow-md mb-6">
   <div class="ml-6">
     <h3>Income</h3>
     <p class="text-green-400">+$1400</p>

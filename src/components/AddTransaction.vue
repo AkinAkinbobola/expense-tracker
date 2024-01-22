@@ -12,7 +12,3 @@
     <button type="submit" class="bg-purple-500 text-white py-2">Add Transaction</button>
   </div>
 </template>
-
-<style scoped>
-
-</style>

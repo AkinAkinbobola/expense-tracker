@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    <h1 class="text-2xl font-semibold">Expense Tracker</h1>
+    <h1 class="text-2xl font-semibold mb-6">Expense Tracker</h1>
   </div>
 </template>
 

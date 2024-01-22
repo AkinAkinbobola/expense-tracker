@@ -7,11 +7,14 @@ import AddTransaction from "../components/AddTransaction.vue";
 </script>
 
 <template>
-  <div class="flex flex-col items-center">
-    <Header/>
-    <Balance/>
-    <IncomeExpense/>
-    <TransactionList/>
-    <AddTransaction/>
+  <div class="flex justify-center items-center mt-24 font-poppins">
+    <div class="flex flex-col">
+      <Header/>
+      <Balance/>
+      <IncomeExpense/>
+      <TransactionList/>
+      <AddTransaction/>
+    </div>
+
   </div>
 </template>

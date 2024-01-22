@@ -8,6 +8,10 @@ import AddTransaction from "../components/AddTransaction.vue";
 import {ref, onMounted} from "vue";
 
 const balance = ref(600);
+const items = ref([
+  {id: 1, name: "Diamonds", price: "-100000"},
+  {id: 2, name: "Paycheck", price: "3000"},
+]);
 const item = ref(null);
 const price = ref(null);
 </script>
@@ -18,7 +22,7 @@ const price = ref(null);
       <Header/>
       <Balance :balance="balance"/>
       <IncomeExpense/>
-      <TransactionList/>
+      <TransactionList :items="items"/>
       <AddTransaction :item="item" :price="price"/>
     </div>
 

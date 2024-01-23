@@ -8,23 +8,23 @@ import AddTransaction from "../components/AddTransaction.vue";
 import {ref, onMounted} from "vue";
 
 const balance = ref(600);
-const items = ref([
+const transactions = ref([
   {id: 1, name: "Diamonds", price: "-100000"},
   {id: 2, name: "Paycheck", price: "3000"},
   {id: 3, name: "Blue cheese", price: "-200"},
 ]);
-const item = ref(null);
+const transaction = ref(null);
 const price = ref(null);
 </script>
 
 <template>
-  <div class="flex justify-center items-center pt-10 font-poppins">
+  <div class="flex justify-center transactions-center pt-10 font-poppins">
     <div class="flex flex-col">
       <Header/>
       <Balance :balance="balance"/>
       <IncomeExpense/>
-      <TransactionList :items="items"/>
-      <AddTransaction :item="item" :price="price"/>
+      <TransactionList :transactions="transactions"/>
+      <AddTransaction :transaction="transaction" :price="price"/>
     </div>
 
   </div>

@@ -65,7 +65,7 @@ const handleDelete = (id) => {
       (transaction) => transaction.id !== id
   );
   saveToLocalStorage()
-  toast.success("Transaction Deleted successfully")
+  toast.success("Transaction deleted successfully")
 };
 
 </script>

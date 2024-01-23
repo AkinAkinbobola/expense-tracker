@@ -5,16 +5,23 @@ import TransactionList from "../components/TransactionList.vue";
 import IncomeExpense from "../components/IncomeExpense.vue";
 import AddTransaction from "../components/AddTransaction.vue";
 
-import {computed, ref} from "vue";
+import {computed, ref, onMounted} from "vue";
 import {useToast} from "vue-toastification";
+
+onMounted(() => {
+  const savedTransactions = JSON.parse(localStorage.getItem("transactions"));
+  if (savedTransactions) {
+    transactions.value = savedTransactions
+  }
+})
+
+const saveToLocalStorage = () => {
+  localStorage.setItem("transactions", JSON.stringify(transactions.value))
+}
 
 const toast = useToast();
 
-const transactions = ref([
-  {id: 1, name: "Diamonds", price: "-100000"},
-  {id: 2, name: "Paycheck", price: "3000"},
-  {id: 3, name: "Blue cheese", price: "-200"},
-]);
+const transactions = ref([]);
 
 const balance = computed(() => {
   return transactions.value.reduce((acc, transaction) => {
@@ -46,6 +53,7 @@ const handleTransactionSubmitted = (transaction) => {
     name: transaction.name,
     price: transaction.price
   })
+  saveToLocalStorage()
   toast.success("Transaction added successfully")
 }
 
@@ -56,6 +64,8 @@ const handleDelete = (id) => {
   transactions.value = transactions.value.filter(
       (transaction) => transaction.id !== id
   );
+  saveToLocalStorage()
+  toast.success("Transaction Deleted successfully")
 };
 
 </script>

@@ -5,9 +5,8 @@ import TransactionList from "../components/TransactionList.vue";
 import IncomeExpense from "../components/IncomeExpense.vue";
 import AddTransaction from "../components/AddTransaction.vue";
 
-import {ref, onMounted} from "vue";
+import {computed, ref} from "vue";
 
-const balance = ref(600);
 const transactions = ref([
   {id: 1, name: "Diamonds", price: "-100000"},
   {id: 2, name: "Paycheck", price: "3000"},
@@ -15,6 +14,14 @@ const transactions = ref([
 ]);
 const transaction = ref(null);
 const price = ref(null);
+
+const balance = computed(() => {
+  return transactions.value.reduce((acc, obj) => {
+    return acc + Number(obj.price);
+  }, 0);
+})
+
+
 </script>
 
 <template>

@@ -12,15 +12,32 @@ const transactions = ref([
   {id: 2, name: "Paycheck", price: "3000"},
   {id: 3, name: "Blue cheese", price: "-200"},
 ]);
-const transaction = ref(null);
-const price = ref(null);
+// const transaction = ref(null);
+// const price = ref(null);
 
 const balance = computed(() => {
-  return transactions.value.reduce((acc, obj) => {
-    return acc + Number(obj.price);
+  return transactions.value.reduce((acc, transaction) => {
+    return acc + Number(transaction.price);
   }, 0);
 })
 
+const income = computed(() => {
+  return transactions.value
+      .filter((transaction) => transaction.price > 0)
+      .reduce((acc, transaction) => {
+        return  acc + Number(transaction.price)
+      }, 0)
+      .toFixed(2);
+});
+
+const expenses = computed(() => {
+  return transactions.value
+      .filter((transaction) => transaction.price < 0)
+      .reduce((acc, transaction) => {
+        return  acc + Number(transaction.price)
+      }, 0)
+      .toFixed(2);
+});
 
 </script>
 
@@ -29,9 +46,9 @@ const balance = computed(() => {
     <div class="flex flex-col">
       <Header/>
       <Balance :balance="balance"/>
-      <IncomeExpense/>
+      <IncomeExpense :income="income" :expenses="expenses"/>
       <TransactionList :transactions="transactions"/>
-      <AddTransaction :transaction="transaction" :price="price"/>
+      <AddTransaction />
     </div>
 
   </div>

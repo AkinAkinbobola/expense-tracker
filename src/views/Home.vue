@@ -66,6 +66,5 @@ const handleDelete = (index) => {
       <TransactionList :transactions="transactions" @deleteTransaction="handleDelete"/>
       <AddTransaction @transactionSubmitted="handleTransactionSubmitted"/>
     </div>
-
   </div>
 </template>

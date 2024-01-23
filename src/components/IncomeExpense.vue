@@ -13,7 +13,7 @@ const {income} = defineProps(["income", "expenses"])
     <div class="border-l mx-6"></div>
     <div class="mr-6">
       <h3>Expense</h3>
-      <p class="text-red-400">-${{ expenses }}</p>
+      <p class="text-red-400">${{ expenses }}</p>
     </div>
   </div>
 </template>

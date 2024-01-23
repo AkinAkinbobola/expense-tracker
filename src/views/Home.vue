@@ -8,7 +8,7 @@ import AddTransaction from "../components/AddTransaction.vue";
 import {computed, ref} from "vue";
 import {useToast} from "vue-toastification";
 
-const toaster = useToast();
+const toast = useToast();
 
 const transactions = ref([
   {id: 1, name: "Diamonds", price: "-100000"},
@@ -46,11 +46,14 @@ const handleTransactionSubmitted = (transaction) => {
     name: transaction.name,
     price: transaction.price
   })
-  toaster.success("Transaction added successfully")
+  toast.success("Transaction added successfully")
 }
 
 const generateUniqueId = () => {
   return Math.floor(Math.random() * 100)
+}
+const handleDelete = (index) => {
+  transactions.value.splice(index, 1)
 }
 </script>
 
@@ -60,7 +63,7 @@ const generateUniqueId = () => {
       <Header/>
       <Balance :balance="balance"/>
       <IncomeExpense :expenses="expenses" :income="income"/>
-      <TransactionList :transactions="transactions"/>
+      <TransactionList :transactions="transactions" @deleteTransaction="handleDelete"/>
       <AddTransaction @transactionSubmitted="handleTransactionSubmitted"/>
     </div>
 

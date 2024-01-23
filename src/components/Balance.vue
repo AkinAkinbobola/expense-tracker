@@ -5,6 +5,6 @@ const {balance} = defineProps(["balance"])
 <template>
   <div class="mb-3">
     <h2 class="text-base">Your Balance</h2>
-    <h3 class="font-semibold text-2xl">${{balance}}</h3>
+    <h3 class="font-semibold text-2xl">${{ balance }}</h3>
   </div>
 </template>

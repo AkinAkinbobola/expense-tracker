@@ -11,6 +11,7 @@ const balance = ref(600);
 const items = ref([
   {id: 1, name: "Diamonds", price: "-100000"},
   {id: 2, name: "Paycheck", price: "3000"},
+  {id: 3, name: "Blue cheese", price: "-200"},
 ]);
 const item = ref(null);
 const price = ref(null);

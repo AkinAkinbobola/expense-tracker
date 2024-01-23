@@ -20,10 +20,9 @@ const color = computed((price) => {
       <p class="m-2">{{ item.name }}</p>
       <div class="flex">
         <p class="m-2">${{item.price}}</p>
-        <div :class="`bg-${item.price < 0 ? 'red' : 'green'}-400 h-full`"></div>
+        <div :class="[item.price < 0 ? 'bg-red-400' : 'bg-green-400', 'w-1']"></div>
       </div>
     </div>
   </div>
-
 </div>
 </template>

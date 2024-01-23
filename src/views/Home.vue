@@ -52,9 +52,12 @@ const handleTransactionSubmitted = (transaction) => {
 const generateUniqueId = () => {
   return Math.floor(Math.random() * 100)
 }
-const handleDelete = (index) => {
-  transactions.value.splice(index, 1)
-}
+const handleDelete = (id) => {
+  transactions.value = transactions.value.filter(
+      (transaction) => transaction.id !== id
+  );
+};
+
 </script>
 
 <template>
